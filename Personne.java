@@ -6,6 +6,9 @@ public abstract class Personne {
 	public int age;
 	
 	public Personne(String Id, String nom, int age) {
+		if (age < 18) {
+            throw new AgeInvalideException("Age inférieur à 18 ans interdit");
+        }
 		this.nom = nom;
 		this.age = age;
 		this.Id = Id;
