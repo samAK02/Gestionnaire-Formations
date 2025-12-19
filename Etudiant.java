@@ -6,7 +6,7 @@ public class Etudiant extends Personne implements Inscription{
 	public String niveau;
 	public Set<String> formationsInscrites;
 	
-	public Etudiant(String Id, String nom, int age, String niveau) {
+	public Etudiant(String Id, String nom, int age, String niveau) throws AgeInvalideException {
 		super(Id,nom, age);
 		this.niveau = niveau;	
 		this.formationsInscrites = new HashSet<>();
@@ -23,12 +23,12 @@ public class Etudiant extends Personne implements Inscription{
 	
 	@Override
 	public void inscrire(String IdFormation) {
-		formationInscrites.add(IdFormation);
+		formationsInscrites.add(IdFormation);
 	}
 	
 	@Override
 	public void desinscrire(String IdFormation) {
-		formationInscrites.remove(IdFormation);
+		formationsInscrites.remove(IdFormation);
 	}
 	
 	
