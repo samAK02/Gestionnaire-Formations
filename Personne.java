@@ -5,7 +5,7 @@ public abstract class Personne {
 	public String nom;
 	public int age;
 	
-	public Personne(String Id, String nom, int age) {
+	public Personne(String Id, String nom, int age) throws AgeInvalideException {
 		if (age < 18) {
             throw new AgeInvalideException("Age inférieur à 18 ans interdit");
         }
