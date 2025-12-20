@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane fx:id="rootPane"
+            xmlns="http://javafx.com/javafx/25.0.1"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.MainController">
+
+    <!-- ===== TOP : Titre ===== -->
+    <top>
+        <Label text="Gestion du Centre de Formation"
+               BorderPane.alignment="CENTER"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-padding: 15;" />
+    </top>
+
+    <!-- ===== LEFT : Menu ===== -->
+    <left>
+        <VBox spacing="10"
+              style="-fx-padding: 15; -fx-background-color: #f0f0f0;"
+              BorderPane.alignment="CENTER">
+
+            <Button fx:id="btnEtudiants" text="Gérer Étudiants" prefWidth="180" />
+            <Button fx:id="btnFormateurs" text="Gérer Formateurs" prefWidth="180" />
+            <Button fx:id="btnFormations" text="Gérer Formations" prefWidth="180" />
+            <Button fx:id="btnInscriptions" text="Inscriptions" prefWidth="180" />
+            <Button fx:id="btnAffichage" text="Affichage" prefWidth="180" />
+            <Button fx:id="btnQuitter" text="Quitter" prefWidth="180" />
+
+        </VBox>
+    </left>
+
+    <!-- ===== CENTER : Zone dynamique ===== -->
+    <center>
+        <Label text="Bienvenue dans le système de gestion du centre de formation"
+               BorderPane.alignment="CENTER"
+               style="-fx-font-size: 16px;" />
+    </center>
+
+</BorderPane>
