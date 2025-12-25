@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/25.0.1"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.FormationController"
+      spacing="10"
+      style="-fx-padding: 15;">
+
+    <Label text="Gestion des Formations" style="-fx-font-size:18px"/>
+
+    <TextField fx:id="idField" promptText="ID Formation"/>
+    <TextField fx:id="intituleField" promptText="Intitulé"/>
+    <TextField fx:id="capaciteField" promptText="Capacité"/>
+    <TextField fx:id="idEtudiantField" promptText="ID Étudiant à inscrire/désinscrire"/>
+
+    <Button text="Ajouter Formation" onAction="#ajouterFormation"/>
+    <Button text="Inscrire Étudiant" onAction="#inscrireEtudiant"/>
+    <Button text="Désinscrire Étudiant" onAction="#desinscrireEtudiant"/>
+</VBox>

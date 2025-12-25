@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/25.0.1"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.AffichageController"
+      spacing="20"
+      style="-fx-padding: 15;">
+
+    <Label text="Affichage du Centre de Formation" style="-fx-font-size:18px"/>
+
+    <Label text="Étudiants:"/>
+    <TableView fx:id="tableEtudiants" prefHeight="150">
+        <columns>
+            <TableColumn fx:id="colIdEtudiant" text="ID"/>
+            <TableColumn fx:id="colNomEtudiant" text="Nom"/>
+            <TableColumn fx:id="colAgeEtudiant" text="Âge"/>
+            <TableColumn fx:id="colNiveauEtudiant" text="Niveau"/>
+        </columns>
+    </TableView>
+
+    <Label text="Formateurs:"/>
+    <TableView fx:id="tableFormateurs" prefHeight="150">
+        <columns>
+            <TableColumn fx:id="colIdFormateur" text="ID"/>
+            <TableColumn fx:id="colNomFormateur" text="Nom"/>
+            <TableColumn fx:id="colAgeFormateur" text="Âge"/>
+            <TableColumn fx:id="colSpecialiteFormateur" text="Spécialité"/>
+        </columns>
+    </TableView>
+
+    <Label text="Formations:"/>
+    <TableView fx:id="tableFormations" prefHeight="150">
+        <columns>
+            <TableColumn fx:id="colIdFormation" text="ID"/>
+            <TableColumn fx:id="colIntitule" text="Intitulé"/>
+            <TableColumn fx:id="colCapacite" text="Capacité"/>
+            <TableColumn fx:id="colInscrits" text="Nb Inscrits"/>
+        </columns>
+    </TableView>
+
+</VBox>
