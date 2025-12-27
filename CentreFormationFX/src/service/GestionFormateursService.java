@@ -5,7 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.util.HashMap;
 import java.util.Map;
-
+import gestionPersonnes.PersonneDejaExistanteException;
 public class GestionFormateursService {
 
     // Instance unique du service
@@ -24,7 +24,10 @@ public class GestionFormateursService {
         return instance;
     }
 
-    public void ajouterFormateur(Formateur f) {
+    public void ajouterFormateur(Formateur f) throws PersonneDejaExistanteException {
+        if (formateurs.containsKey(f.getId())) {
+            throw new PersonneDejaExistanteException("Formateur déjà existant avec cet ID !");
+        }
         formateurs.put(f.getId(), f);
     }
 

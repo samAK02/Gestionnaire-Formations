@@ -8,6 +8,9 @@ public class Formateur extends Personne{
         super(Id, nom, age);
         this.specialite = specialite;
     }
+    public String getSpecialite() {
+        return specialite;
+    }
 
     @Override
     public String getType() {

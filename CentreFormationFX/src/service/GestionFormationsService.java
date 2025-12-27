@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.util.HashMap;
 import java.util.Map;
+import gestionPersonnes.EtudiantDejaInscritException;
+
 
 public class GestionFormationsService {
 
@@ -30,12 +32,18 @@ public class GestionFormationsService {
     }
 
     // Inscrire un étudiant à une formation
-    public void inscrireEtudiant(String idFormation, String idEtudiant) throws FormationPleineException {
+    public void inscrireEtudiant(String idFormation, String idEtudiant)
+            throws FormationPleineException, EtudiantDejaInscritException {
+
         Formation f = formations.get(idFormation);
-        if (f != null) {
-            f.ajouterEtudiant(idEtudiant); // peut lancer FormationPleineException
+
+        if (f == null) {
+            throw new IllegalArgumentException("Formation inexistante");
         }
+
+        f.ajouterEtudiant(idEtudiant);
     }
+
 
     // Désinscrire un étudiant d'une formation
     public void desinscrireEtudiant(String idFormation, String idEtudiant) {

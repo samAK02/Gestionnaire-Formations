@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import service.GestionFormationsService;
+import gestionPersonnes.EtudiantDejaInscritException;
 
 public class FormationController {
 
@@ -34,14 +35,19 @@ public class FormationController {
     @FXML
     private void inscrireEtudiant() {
         try {
-            service.inscrireEtudiant(idField.getText(), idEtudiantField.getText());
+            service.inscrireEtudiant(
+                    idField.getText(),
+                    idEtudiantField.getText()
+            );
             showInfo("Étudiant inscrit !");
-        } catch (FormationPleineException ex) {
+        } catch (FormationPleineException |
+                 EtudiantDejaInscritException ex) {
             showError(ex.getMessage());
         } catch (Exception ex) {
             showError(ex.getMessage());
         }
     }
+
 
     @FXML
     private void desinscrireEtudiant() {

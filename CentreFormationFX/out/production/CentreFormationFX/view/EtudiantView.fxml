@@ -14,10 +14,6 @@
     <TextField fx:id="ageField" promptText="Âge"/>
     <TextField fx:id="niveauField" promptText="Niveau"/>
 
-    <TextField fx:id="formationField" promptText="ID Formation"/>
-
     <Button text="Ajouter Étudiant" onAction="#ajouterEtudiant"/>
-    <Button text="Inscrire à la formation" onAction="#inscrire"/>
-    <Button text="Désinscrire de la formation" onAction="#desinscrire"/>
 
 </VBox>

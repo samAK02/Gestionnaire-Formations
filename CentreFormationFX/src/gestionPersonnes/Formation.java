@@ -15,14 +15,29 @@ public class Formation {
         this.etudiantsInscrits = new HashSet<>();
     }
 
-    public void ajouterEtudiant(String IdEtudiant) throws FormationPleineException {
+    public void ajouterEtudiant(String IdEtudiant) throws FormationPleineException, EtudiantDejaInscritException{
+        if (etudiantsInscrits.contains(IdEtudiant)) {
+            throw new EtudiantDejaInscritException(
+                    "Étudiant déjà inscrit dans cette formation"
+            );
+        }
         if (estPleine()) {
             throw new FormationPleineException("Formation pleine");
         }
         etudiantsInscrits.add(IdEtudiant);
 
     }
+    public String getIdFormation() {
+        return IdFormation;
+    }
 
+    public String getIntitule() {
+        return intitule;
+    }
+
+    public int getCapacite() {
+        return capacite;
+    }
     public void retirerEtudiant(String IdEtudiant) {
         etudiantsInscrits.remove(IdEtudiant);
 

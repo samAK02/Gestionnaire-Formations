@@ -4,7 +4,6 @@ import gestionPersonnes.Etudiant;
 import gestionPersonnes.Formateur;
 import gestionPersonnes.Formation;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -13,7 +12,7 @@ import service.GestionEtudiantsService;
 import service.GestionFormateursService;
 import service.GestionFormationsService;
 import javafx.beans.property.SimpleIntegerProperty;
-
+import javafx.beans.property.SimpleStringProperty;
 
 public class AffichageController {
 
@@ -35,7 +34,7 @@ public class AffichageController {
     @FXML private TableColumn<Formation, Integer> colCapacite;
     @FXML private TableColumn<Formation, Integer> colInscrits;
 
-    // Références aux services (les mêmes que utilisés dans les autres controllers)
+    // Services singletons
     private GestionEtudiantsService etudiantService = GestionEtudiantsService.getInstance();
     private GestionFormateursService formateurService = GestionFormateursService.getInstance();
     private GestionFormationsService formationService = GestionFormationsService.getInstance();
@@ -62,9 +61,18 @@ public class AffichageController {
                 new SimpleIntegerProperty(cellData.getValue().etudiantsInscrits.size()).asObject()
         );
 
-        // Charger les données
+        // Charger les données dans les tables
+        refreshTables();
+    }
+
+    // Méthode pour rafraîchir toutes les tables
+    public void refreshTables() {
         tableEtudiants.setItems(FXCollections.observableArrayList(etudiantService.getAllEtudiants()));
         tableFormateurs.setItems(FXCollections.observableArrayList(formateurService.getAllFormateurs()));
         tableFormations.setItems(FXCollections.observableArrayList(formationService.getAllFormations()));
+
+        tableEtudiants.refresh();
+        tableFormateurs.refresh();
+        tableFormations.refresh();
     }
 }

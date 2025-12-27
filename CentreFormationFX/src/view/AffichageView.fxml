@@ -20,6 +20,7 @@
         </columns>
     </TableView>
 
+
     <Label text="Formateurs:"/>
     <TableView fx:id="tableFormateurs" prefHeight="150">
         <columns>
