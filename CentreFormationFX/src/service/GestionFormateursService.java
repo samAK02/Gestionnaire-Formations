@@ -30,7 +30,18 @@ public class GestionFormateursService {
         }
         formateurs.put(f.getId(), f);
     }
+    public void supprimerFormateur(String id) {
+        formateurs.remove(id);
+    }
 
+    public void modifierFormateur(String id, String nom, int age, String specialite) {
+        Formateur f = formateurs.get(id);
+        if (f != null) {
+            f.setNom(nom);
+            f.setAge(age);
+            f.specialite = specialite;
+        }
+    }
     public Formateur getFormateur(String id) {
         return formateurs.get(id);
     }

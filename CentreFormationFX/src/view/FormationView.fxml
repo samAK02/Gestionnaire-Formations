@@ -16,6 +16,9 @@
     <TextField fx:id="idEtudiantField" promptText="ID Étudiant à inscrire/désinscrire"/>
 
     <Button text="Ajouter Formation" onAction="#ajouterFormation"/>
+    <Button text="Modifier Formation" onAction="#modifierFormation"/>
+    <Button text="Supprimer Formation" onAction="#supprimerFormation"/>
     <Button text="Inscrire Étudiant" onAction="#inscrireEtudiant"/>
     <Button text="Désinscrire Étudiant" onAction="#desinscrireEtudiant"/>
+
 </VBox>

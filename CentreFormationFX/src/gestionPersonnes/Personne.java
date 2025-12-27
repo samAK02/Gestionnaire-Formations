@@ -24,7 +24,16 @@ public abstract class Personne {
         return age;
     }
     public abstract String getType();
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
+    public void setAge(int age) {
+        if (age <= 0 || age > 120) {
+            throw new IllegalArgumentException("Âge invalide !");
+        }
+        this.age = age;
+    }
     public String toString() {
         return "id: "+Id+"nom :"+nom+"Age: "+age;
     }

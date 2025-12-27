@@ -34,6 +34,22 @@ public class GestionEtudiantsService {
         }
         etudiants.put(e.getId(), e);
     }
+    public void supprimerEtudiant(String id) {
+        if (!etudiants.containsKey(id)) {
+            throw new IllegalArgumentException("Étudiant inexistant");
+        }
+        etudiants.remove(id);
+    }
+
+    public void modifierEtudiant(String id, String nom, int age, String niveau) {
+        Etudiant e = etudiants.get(id);
+        if (e == null) {
+            throw new IllegalArgumentException("Étudiant inexistant");
+        }
+        e.nom = nom;
+        e.age = age;
+        e.niveau = niveau;
+    }
 
     public Etudiant getEtudiant(String id) {
         return etudiants.get(id);

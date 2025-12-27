@@ -15,5 +15,6 @@
     <TextField fx:id="niveauField" promptText="Niveau"/>
 
     <Button text="Ajouter Étudiant" onAction="#ajouterEtudiant"/>
-
+    <Button text="Modifier Étudiant" onAction="#modifierEtudiant"/>
+    <Button text="Supprimer Étudiant" onAction="#supprimerEtudiant"/>
 </VBox>

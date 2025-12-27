@@ -12,11 +12,16 @@ public class FormateurController {
 
     //private GestionFormateursService service = GestionFormateursService.getInstance();
     private GestionFormateursService formateurService = GestionFormateursService.getInstance();
-
+    private AffichageController affichageController;
     @FXML private TextField idField;
     @FXML private TextField nomField;
     @FXML private TextField ageField;
     @FXML private TextField specialiteField;
+
+    public void setAffichageController(AffichageController controller) {
+        this.affichageController = controller;
+    }
+
 
     @FXML
     private void ajouterFormateur() {
@@ -37,7 +42,33 @@ public class FormateurController {
             showError(ex.getMessage());
         }
     }
+    @FXML
+    private void supprimerFormateur() {
+        formateurService.supprimerFormateur(idField.getText());
+        refresh();
+        showInfo("Formateur supprimé !");
+    }
+    private void refresh() {
+        if (affichageController != null) {
+            affichageController.refreshTables();
+        }
+    }
 
+    @FXML
+    private void modifierFormateur() {
+        try {
+            formateurService.modifierFormateur(
+                    idField.getText(),
+                    nomField.getText(),
+                    Integer.parseInt(ageField.getText()),
+                    specialiteField.getText()
+            );
+            refresh();
+            showInfo("Formateur modifié !");
+        } catch (Exception e) {
+            showError(e.getMessage());
+        }
+    }
 
     private void showInfo(String msg) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, msg);

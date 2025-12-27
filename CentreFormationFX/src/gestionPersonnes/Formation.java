@@ -38,6 +38,18 @@ public class Formation {
     public int getCapacite() {
         return capacite;
     }
+
+
+    public Set<String> getEtudiantsInscrits() {
+        return etudiantsInscrits;
+    }
+    public void setIntitule(String intitule) {
+        this.intitule = intitule;
+    }
+
+    public void setCapacite(int capacite) {
+        this.capacite = capacite;
+    }
     public void retirerEtudiant(String IdEtudiant) {
         etudiantsInscrits.remove(IdEtudiant);
 

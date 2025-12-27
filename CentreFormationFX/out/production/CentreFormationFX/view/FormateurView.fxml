@@ -16,5 +16,6 @@
     <TextField fx:id="specialiteField" promptText="Spécialité"/>
 
     <Button text="Ajouter Formateur" onAction="#ajouterFormateur"/>
-
+    <Button text="Modifier Formateur" onAction="#modifierFormateur"/>
+    <Button text="Supprimer Formateur" onAction="#supprimerFormateur"/>
 </VBox>

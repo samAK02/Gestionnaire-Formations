@@ -2,6 +2,7 @@ package controller;
 
 import gestionPersonnes.Etudiant;
 import gestionPersonnes.AgeInvalideException;
+import gestionPersonnes.PersonneDejaExistanteException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -9,24 +10,14 @@ import service.GestionEtudiantsService;
 
 public class EtudiantController {
 
-    // Services singleton
     private GestionEtudiantsService etudiantService = GestionEtudiantsService.getInstance();
 
-    // Référence vers le controller d'affichage (à injecter après le chargement du FXML)
-    private AffichageController affichageController;
-
-    // Champs texte
     @FXML private TextField idField;
     @FXML private TextField nomField;
     @FXML private TextField ageField;
     @FXML private TextField niveauField;
 
-    // Setter pour injecter le controller Affichage
-    public void setAffichageController(AffichageController controller) {
-        this.affichageController = controller;
-    }
-
-    // Ajouter un étudiant
+    // Ajouter
     @FXML
     private void ajouterEtudiant() {
         try {
@@ -38,22 +29,45 @@ public class EtudiantController {
             );
             etudiantService.ajouterEtudiant(e);
             showInfo("Étudiant ajouté !");
-
-        } catch (AgeInvalideException ex) {
+        } catch (PersonneDejaExistanteException | AgeInvalideException ex) {
             showError(ex.getMessage());
+        } catch (Exception ex) {
+            showError("Erreur de saisie");
+        }
+    }
+
+    // Supprimer
+    @FXML
+    private void supprimerEtudiant() {
+        try {
+            etudiantService.supprimerEtudiant(idField.getText());
+            showInfo("Étudiant supprimé !");
         } catch (Exception ex) {
             showError(ex.getMessage());
         }
     }
 
-    // Alertes
+    // Modifier
+    @FXML
+    private void modifierEtudiant() {
+        try {
+            etudiantService.modifierEtudiant(
+                    idField.getText(),
+                    nomField.getText(),
+                    Integer.parseInt(ageField.getText()),
+                    niveauField.getText()
+            );
+            showInfo("Étudiant modifié !");
+        } catch (Exception ex) {
+            showError(ex.getMessage());
+        }
+    }
+
     private void showInfo(String msg) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, msg);
-        alert.show();
+        new Alert(Alert.AlertType.INFORMATION, msg).show();
     }
 
     private void showError(String msg) {
-        Alert alert = new Alert(Alert.AlertType.ERROR, msg);
-        alert.show();
+        new Alert(Alert.AlertType.ERROR, msg).show();
     }
 }

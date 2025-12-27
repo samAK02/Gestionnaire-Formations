@@ -26,6 +26,19 @@ public class GestionFormationsService {
     public void ajouterFormation(Formation f) {
         formations.put(f.IdFormation, f);
     }
+    public void supprimerFormation(String id) {
+        formations.remove(id);
+    }
+
+    public void modifierFormation(String id, String intitule, int capacite) {
+        Formation f = formations.get(id);
+        if (f == null) {
+            throw new IllegalArgumentException("Formation introuvable");
+        }
+        f.setIntitule(intitule);
+        f.setCapacite(capacite);
+    }
+
 
     public Formation getFormation(String id) {
         return formations.get(id);

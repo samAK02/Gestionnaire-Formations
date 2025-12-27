@@ -33,6 +33,25 @@ public class FormationController {
     }
 
     @FXML
+    private void modifierFormation() {
+        try {
+            service.modifierFormation(
+                    idField.getText(),
+                    intituleField.getText(),
+                    Integer.parseInt(capaciteField.getText())
+            );
+            showInfo("Formation modifiée");
+        } catch (Exception e) {
+            showError(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void supprimerFormation() {
+        service.supprimerFormation(idField.getText());
+        showInfo("Formation supprimée");
+    }
+    @FXML
     private void inscrireEtudiant() {
         try {
             service.inscrireEtudiant(
