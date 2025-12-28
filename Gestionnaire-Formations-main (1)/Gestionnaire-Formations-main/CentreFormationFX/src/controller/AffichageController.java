@@ -1,0 +1,86 @@
+package controller;
+
+import gestionPersonnes.Etudiant;
+import gestionPersonnes.Formateur;
+import gestionPersonnes.Formation;
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import service.GestionEtudiantsService;
+import service.GestionFormateursService;
+import service.GestionFormationsService;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
+public class AffichageController {
+
+    @FXML private TableView<Etudiant> tableEtudiants;
+    @FXML private TableColumn<Etudiant, String> colIdEtudiant;
+    @FXML private TableColumn<Etudiant, String> colNomEtudiant;
+    @FXML private TableColumn<Etudiant, Integer> colAgeEtudiant;
+    @FXML private TableColumn<Etudiant, String> colNiveauEtudiant;
+    @FXML private TableColumn<Etudiant, String> colFormationsEtudiant;
+
+
+    @FXML private TableView<Formateur> tableFormateurs;
+    @FXML private TableColumn<Formateur, String> colIdFormateur;
+    @FXML private TableColumn<Formateur, String> colNomFormateur;
+    @FXML private TableColumn<Formateur, Integer> colAgeFormateur;
+    @FXML private TableColumn<Formateur, String> colSpecialiteFormateur;
+
+    @FXML private TableView<Formation> tableFormations;
+    @FXML private TableColumn<Formation, String> colIdFormation;
+    @FXML private TableColumn<Formation, String> colIntitule;
+    @FXML private TableColumn<Formation, Integer> colCapacite;
+    @FXML private TableColumn<Formation, Integer> colInscrits;
+
+    // Services singletons
+    private GestionEtudiantsService etudiantService = GestionEtudiantsService.getInstance();
+    private GestionFormateursService formateurService = GestionFormateursService.getInstance();
+    private GestionFormationsService formationService = GestionFormationsService.getInstance();
+
+    @FXML
+    public void initialize() {
+        // Colonnes Étudiants
+        colIdEtudiant.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        colNomEtudiant.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        colAgeEtudiant.setCellValueFactory(new PropertyValueFactory<>("age"));
+        colNiveauEtudiant.setCellValueFactory(new PropertyValueFactory<>("niveau"));
+        colFormationsEtudiant.setCellValueFactory(cellData ->
+        new SimpleStringProperty(cellData.getValue().getFormationsAsString())
+);
+
+
+        // Colonnes Formateurs
+        colIdFormateur.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        colNomFormateur.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        colAgeFormateur.setCellValueFactory(new PropertyValueFactory<>("age"));
+        colSpecialiteFormateur.setCellValueFactory(new PropertyValueFactory<>("specialite"));
+
+        // Colonnes Formations
+        colIdFormation.setCellValueFactory(new PropertyValueFactory<>("IdFormation"));
+        colIntitule.setCellValueFactory(new PropertyValueFactory<>("intitule"));
+        colCapacite.setCellValueFactory(new PropertyValueFactory<>("capacite"));
+        colInscrits.setCellValueFactory(cellData ->
+                new SimpleIntegerProperty(cellData.getValue().etudiantsInscrits.size()).asObject()
+        );
+
+        // Charger les données dans les tables
+        refreshTables();
+    }
+
+    // Méthode pour rafraîchir toutes les tables
+    public void refreshTables() {
+        tableEtudiants.setItems(FXCollections.observableArrayList(etudiantService.getAllEtudiants()));
+        tableFormateurs.setItems(FXCollections.observableArrayList(formateurService.getAllFormateurs()));
+        tableFormations.setItems(FXCollections.observableArrayList(formationService.getAllFormations()));
+
+        tableEtudiants.refresh();
+        tableFormateurs.refresh();
+        tableFormations.refresh();
+        tableEtudiants.refresh();
+
+    }
+}

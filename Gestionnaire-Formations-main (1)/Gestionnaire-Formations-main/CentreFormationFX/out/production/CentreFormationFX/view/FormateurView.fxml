@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/25.0.1"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.FormateurController"
+      spacing="10"
+      style="-fx-padding: 15;"
+      styleClass="form-pane">
+
+    <Label text="Gestion des Formateurs" style="-fx-font-size:18px"/>
+
+    <TextField fx:id="idField" promptText="ID Formateur"/>
+    <TextField fx:id="nomField" promptText="Nom"/>
+    <TextField fx:id="ageField" promptText="Âge"/>
+    <TextField fx:id="specialiteField" promptText="Spécialité"/>
+
+    <Button text="Ajouter Formateur" onAction="#ajouterFormateur"/>
+    <Button text="Modifier Formateur" onAction="#modifierFormateur"/>
+    <Button text="Supprimer Formateur" onAction="#supprimerFormateur"/>
+</VBox>

@@ -1,0 +1,180 @@
+/* =========================
+   GLOBAL
+   ========================= */
+.root {
+    -fx-background-color: #2b2b2b;   /* gris foncé */
+    -fx-font-family: "Segoe UI", "Arial";
+}
+
+/* =========================
+   TEXTE / LABELS
+   ========================= */
+.label {
+    -fx-text-fill: #ffffff;
+}
+
+/* =========================
+   TEXTFIELDS
+   ========================= */
+.text-field {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: white;
+    -fx-border-color: #5c5c5c;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.text-field:focused {
+    -fx-border-color: #9acd32;
+}
+
+/* =========================
+   BOUTONS GÉNÉRAUX
+   ========================= */
+.button {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-padding: 8 16;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+/* =========================
+   BOUTONS MENU (gris clair)
+   ========================= */
+.button-menu {
+    -fx-background-color: #6c757d;
+}
+
+.button-menu:hover {
+    -fx-background-color: #868e96;
+}
+
+/* =========================
+   BOUTON AJOUTER (vert)
+   ========================= */
+.button-add {
+    -fx-background-color: #28a745;
+}
+
+.button-add:hover {
+    -fx-background-color: #218838;
+}
+
+/* =========================
+   BOUTON DÉSINSCRIRE (rouge)
+   ========================= */
+.button-remove {
+    -fx-background-color: #dc3545;
+}
+
+.button-remove:hover {
+    -fx-background-color: #b02a37;
+}
+
+/* =========================
+   TABLEVIEW
+   ========================= */
+.table-view {
+    -fx-background-color: #3c3f41;
+    -fx-border-color: #5c5c5c;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #444;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: #3c3f41;
+    
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #353535;
+    
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #5c5cff;
+    
+}
+
+/* =========================
+   ALERTS
+   ========================= */
+.dialog-pane {
+    -fx-background-color: #2b2b2b;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: white;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #444;
+}
+
+
+.table-view {
+    -fx-background-color: #3c3f41;
+    -fx-border-color: #5c5c5c;
+    -fx-border-width: 1;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #444;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.table-view .column-header {
+    -fx-border-color: #5c5c5c;
+    -fx-border-width: 0 0 1 0; /* ligne continue */
+}
+
+
+.table-cell {
+    -fx-text-fill: white;
+}
+
+/* =========================
+   SUPPRESSION DES LIGNES ENTRE COLONNES
+   ========================= */
+
+/* Supprime les lignes de grille */
+.table-view {
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+
+/* Supprime toute bordure verticale des cellules */
+.table-cell {
+    -fx-border-width: 0;
+}
+
+/* Supprime les séparateurs dans l’en-tête */
+.table-view .column-header {
+    -fx-border-width: 0;
+}
+
+/* Supprime les lignes de séparation de l’arrière-plan header */
+.table-view .column-header-background {
+    -fx-border-width: 0;
+}
+
+
+/* =========================
+   FORMULAIRES (Étudiant / Formateur / Formation)
+   ========================= */
+
+/* Texte noir pour TOUS les boutons de ces vues */
+.form-pane .button {
+    -fx-text-fill: black;
+}

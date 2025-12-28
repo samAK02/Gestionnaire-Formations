@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.EtudiantController"
+      style="-fx-padding: 15"
+      styleClass="form-pane">
+
+    <Label text="Gestion des Étudiants" style="-fx-font-size:18px"/>
+
+    <TextField fx:id="idField" promptText="ID Étudiant"/>
+    <TextField fx:id="nomField" promptText="Nom"/>
+    <TextField fx:id="ageField" promptText="Âge"/>
+    <TextField fx:id="niveauField" promptText="Niveau"/>
+
+    <Button text="Ajouter Étudiant" onAction="#ajouterEtudiant"/>
+    <Button text="Modifier Étudiant" onAction="#modifierEtudiant"/>
+    <Button text="Supprimer Étudiant" onAction="#supprimerEtudiant"/>
+</VBox>
