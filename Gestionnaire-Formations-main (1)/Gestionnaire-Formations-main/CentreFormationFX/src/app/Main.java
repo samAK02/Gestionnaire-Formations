@@ -19,7 +19,7 @@ public class Main extends Application {
             // Créer la scène
             Scene scene = new Scene(root, 800, 500); // largeur x hauteur
             scene.getStylesheets().add(
-                    getClass().getResource("style.css").toExternalForm()
+                    getClass().getResource("/view/style.css").toExternalForm()
                 );
             primaryStage.setTitle("Centre de Formation");
             primaryStage.setScene(scene);
